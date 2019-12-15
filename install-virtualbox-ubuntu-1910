@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+# Template orgulhosamente criado por (Shell-Base)
+
+#-----------HEADER-------------------------------------------------------------|
+# AUTOR             : Vovolinux <suporte@vovolinux.com.br>
+# HOMEPAGE          : https://vovolinux.com.br 
+# DATA-DE-CRIAÇÃO   : 14/12/2019 às 21:07 
+# PROGRAMA          : install-virtualbox-ubuntu-1910
+# VERSÃO            : 1.0.0
+# LICENÇA           : MIT
+# PEQUENA-DESCRIÇÃO : Instalação do Virtualbox no Ubuntu Studio 19.10.
+# 
+# TESTADO COM:
+# NAME="Ubuntu"
+# VERSION="19.10 (Eoan Ermine)"
+# ID=ubuntu
+# ID_LIKE=debian
+# PRETTY_NAME="Ubuntu 19.10"
+# VERSION_ID="19.10"
+# HOME_URL="https://www.ubuntu.com/"
+# SUPPORT_URL="https://help.ubuntu.com/"
+# BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+# PRIVACY_POLICY_URL=
+#   "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+# VERSION_CODENAME=eoan
+# UBUNTU_CODENAME=eoan
+# 
+# Linux VINICIUS-NB 5.3.0-24-lowlatency #26-Ubuntu SMP PREEMPT 
+# Thu Nov 14 02:16:52 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+# 
+# CHANGELOG :
+#
+#------------------------------------------------------------------------------|
+
+#--------------------------------- VARIÁVEIS ---------------------------------->
+
+# Identifica a Distro
+release='os-release'
+linha='PRETTY'
+distro=''
+
+# Distros testadas
+distros=(
+    'Ubuntu 19.10'
+    )
+
+# Flag para continuar o script
+continua=0
+
+# Lista de pacotes
+pacotes=(
+    'virtualbox'
+    'virtualbox-ext-pack'
+    'virtualbox-guest-additions-iso'
+    'virtualbox-guest-dkms'
+    'virtualbox-guest-utils'
+)
+
+
+#------------------------------- FIM-VARIÁVEIS --------------------------------<
+
+
+
+#----------------------------------- FUNÇÕES ---------------------------------->
+
+# Obtém o nome da distro
+get_distro()
+{
+    if ! [[ -e /etc/os-release ]]; then
+        release='lsb-release'
+        linha='CODENAME'
+    fi    
+
+    distro=$(cat /etc/"${release}" | grep "${linha}" | cut -d"\"" -f2)
+}
+
+# Verifica se o script já foi testado na distro atual
+verifica_distro()
+{
+    for d in "${distros[@]}"; do                     
+        if [[ "${d}" == ${distro} ]]; then
+            continua=1
+        fi
+    done
+
+    [[ $continua -eq 0 ]] && { echo -e ">> Este script ainda não foi testado com ${distro}."; exit $continua; } 
+}
+
+# Instala os pacotes da lista
+instala()
+{
+    for p in "${pacotes[@]}"; do                 
+        sudo apt install $p
+    done
+}
+
+#--------------------------------- FIM-FUNÇÕES --------------------------------<
+
+
+
+#---------------------------------- TESTES ------------------------------------>
+
+get_distro
+verifica_distro
+
+#--------------------------------- FIM-TESTES ---------------------------------<
+
+# Programa começa aqui :)
+instala
