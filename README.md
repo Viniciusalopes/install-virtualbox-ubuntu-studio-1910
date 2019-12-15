@@ -32,7 +32,7 @@ Thu Nov 14 02:16:52 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 
 - __Conceder permissão de execução para o script__
 ```
-chmod + x install-virtualbox
+chmod +x install-virtualbox
 ```
 
 - __Executar o script__
