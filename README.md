@@ -5,7 +5,7 @@ Instalação do Virtualbox no Ubuntu Studio 19.10.
 AUTOR             : Vovolinux <suporte@vovolinux.com.br>
 HOMEPAGE          : https://vovolinux.com.br 
 DATA-DE-CRIAÇÃO   : 14/12/2019 às 21:07 
-PROGRAMA          : install-virtualbox-ubuntu-1910
+PROGRAMA          : install-virtualbox
 VERSÃO            : 1.0.0
 LICENÇA           : MIT
 PEQUENA-DESCRIÇÃO : Instalação do Virtualbox no Ubuntu Studio 19.10.
@@ -32,12 +32,12 @@ Thu Nov 14 02:16:52 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 
 - __Conceder permissão de execução para o script__
 ```
-chmod + x install-virtualbox-ubuntu-studio-1910
+chmod + x install-virtualbox
 ```
 
 - __Executar o script__
 ```
-./install-virtualbox-ubuntu-studio-1910
+./install-virtualbox
 ```
 
 
