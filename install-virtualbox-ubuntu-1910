@@ -6,7 +6,7 @@
 # HOMEPAGE          : https://vovolinux.com.br 
 # DATA-DE-CRIAÇÃO   : 14/12/2019 às 21:07 
 # PROGRAMA          : install-virtualbox-ubuntu-1910
-# VERSÃO            : 1.0.0
+# VERSÃO            : 1.0.1
 # LICENÇA           : MIT
 # PEQUENA-DESCRIÇÃO : Instalação do Virtualbox no Ubuntu Studio 19.10.
 # 
@@ -29,6 +29,8 @@
 # Thu Nov 14 02:16:52 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 # 
 # CHANGELOG :
+# 2019-12-14 - Vovolinux
+#   - Comando 'sudo modprobe vboxdrv' após a instalação.
 #
 #------------------------------------------------------------------------------|
 
@@ -83,7 +85,10 @@ verifica_distro()
         fi
     done
 
-    [[ $continua -eq 0 ]] && { echo -e ">> Este script ainda não foi testado com ${distro}."; exit $continua; } 
+    [[ $continua -eq 0 ]] && { 
+        echo -e ">> Este script ainda não foi testado com ${distro}.";
+        exit $continua; 
+        } 
 }
 
 # Instala os pacotes da lista
@@ -107,3 +112,4 @@ verifica_distro
 
 # Programa começa aqui :)
 instala
+sudo modprobe vboxdrv
