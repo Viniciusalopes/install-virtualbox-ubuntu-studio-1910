@@ -28,4 +28,18 @@ Linux VINICIUS-NB 5.3.0-24-lowlatency #26-Ubuntu SMP PREEMPT
 Thu Nov 14 02:16:52 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+## Instalação
+
+- __Conceder permissão de execução para o script__
+```
+chmod + x install-virtualbox-ubuntu-studio-1910
+```
+
+- __Executar o script__
+```
+./install-virtualbox-ubuntu-studio-1910
+```
+
+
+
 ![virtualbox-6.png](https://raw.githubusercontent.com/Viniciusalopes/install-virtualbox-ubuntu-studio-1910/master/imagens/virtualbox-6.png)
